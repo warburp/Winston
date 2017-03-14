@@ -284,7 +284,10 @@ var commands = {
         member.removeRole(msg.guild.roles.find("name", suffix)).then(console.log(msg.author.username + " has been unassigned a class.")).catch(console.log);
       }
       else{
-        				msg.channel.sendMessage("Check your Spelling");
+        				 const Armory = new Discord.RichEmbed()
+ .setColor(0x5B2C6F)
+ .setTitle("Check that scrub out")
+ .setURL("Check your Spelling");
       }
       msg.delete();
     }
@@ -353,7 +356,6 @@ try{
   Config.debug = true;
   Config.respondToInvalid = true;
 }
-
 bot.on("message", function (msg) {
 	//check if message is a command
   if(msg.author.id != bot.user.id && (msg.content[0] === "!")){
@@ -374,6 +376,7 @@ bot.on("message", function (msg) {
     }
   }
 });
+
 function get_gif(tags, func) {
   var params = {
     "api_key": giphy_config.api_key,
@@ -423,4 +426,4 @@ function formatPath(arr){
   outStr = arr.slice(0, -2).join("") + "/" + arr.slice(-2).join("/") + ".txt";
   return outStr;
 }
-bot.login("MjMzNjM0OTczNzg0MDgwMzg0.C2pdHQ.byiglU_uxOK0unw3wr2dOwU7s-M");
+
