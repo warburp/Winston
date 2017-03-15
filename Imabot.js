@@ -187,7 +187,7 @@ var commands = {
       suffix = suffix.split(" ");
       		let path = formatPath(suffix);
       console.log(path);
-      fs.readFile("../logs/" + path, "utf8", (err, Log) => {
+      fs.readFile("./logs/" + path, "utf8", (err, Log) => {
         if(err){
           msg.channel.sendMessage("Could not find log did you spell it right?");
         }
@@ -301,7 +301,7 @@ var commands = {
       msg.delete();
       msg.author.sendMessage("Working. Please allow about 10 minutes for me to DM your results.  Please do not resend command unless I ask you to.");
       if (suffix.length > 2) {
-        child_process.exec("C:/Users/Administrator/Documents/SimResults/SimC.bat " + "\"" + suffix[0] + " " + suffix[1] + "\" " + suffix[2], function(err, stdout) {
+        child_process.exec("./SimResults/SimC.bat " + "\"" + suffix[0] + " " + suffix[1] + "\" " + suffix[2], function(err, stdout) {
           if (err) {
           // Ooops.
           // console.log(stderr);
@@ -310,11 +310,11 @@ var commands = {
           }
         // Done.
           console.log(stdout);
-          msg.author.sendFile("C:/Users/Administrator/Documents/SimResults/" + suffix[2] + ".html");
+          msg.author.sendFile("./SimResults/" + suffix[2] + ".html");
         });
       }
       else {
-        child_process.exec("C:/Users/Administrator/Documents/SimResults/SimC.bat " + suffix[0] + " " + suffix[1], function(err, stdout) {
+        child_process.exec("./SimC.bat " + suffix[0] + " " + suffix[1], function(err, stdout) {
           if (err) {
       // Ooops.
       // console.log(stderr);
@@ -323,7 +323,7 @@ var commands = {
           }
     // Done.
           console.log(stdout);
-          msg.channel.sendFile("C:/Users/Administrator/Documents/SimResults/" + suffix[1] + ".html");
+          msg.channel.sendFile("./Documents/SimResults/" + suffix[1] + ".html");
         });
       }
     }
